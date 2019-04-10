@@ -1,22 +1,28 @@
 import React from "react";
+import Display from "../display/Display";
 
 class Dashboard extends React.Component {
   state = {
     strike: 0,
     ball: 0,
     foul: 0,
+    hit: 0,
     out: 0
   };
 
   render() {
     return (
-      <div>
-        <h2>Dashboard</h2>
-        <button onClick={this.strike}>Strike</button>
-        <button onClick={this.ball}>Ball</button>
-        <button onClick={this.foul}>Foul</button>
-        <button onClick={this.out}>Out</button>
-      </div>
+      <>
+        <div>
+          <h2>Count Selectors</h2>
+          <button onClick={this.strike}>Strike</button>
+          <button onClick={this.ball}>Ball</button>
+          <button onClick={this.foul}>Foul</button>
+          <button onClick={this.hit}>Hit</button>
+          <button onClick={this.out}>Out</button>
+        </div>
+        <Display count={this.state} />
+      </>
     );
   }
 
@@ -63,6 +69,15 @@ class Dashboard extends React.Component {
     }
   };
 
+  hit = () => {
+    this.setState({
+      strike: 0,
+      ball: 0,
+      foul: 0,
+      hit: this.state.hit + 1
+    });
+  };
+
   out = () => {
     if (this.state.out === 2) {
       this.setState({
@@ -72,7 +87,12 @@ class Dashboard extends React.Component {
         out: 0
       });
     } else {
-        this.setState({ out: this.state.out + 1 })
+      this.setState({
+        strike: 0,
+        ball: 0,
+        foul: 0,
+        out: this.state.out + 1 
+      });
     }
   };
 }
