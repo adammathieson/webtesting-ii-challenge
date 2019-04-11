@@ -1,0 +1,11 @@
+{
+  "name": "webtesting-ii-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/adammathieson/webtesting-ii-challenge.git",
+  "author": "Adam Mathieson <mathieson1222@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react-scripts": "^2.1.8"
+  }
+}
